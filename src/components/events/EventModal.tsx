@@ -14,7 +14,8 @@ import {
   Share2, 
   Edit3, 
   Trash2, 
-  Check 
+  Check,
+  ExternalLink 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -376,21 +377,35 @@ export const EventModal: React.FC<EventModalProps> = ({ event, onClose, onEdit }
                       Attend as an Official Student Delegate
                     </span>
                     <p className="text-xs text-slate-400">
-                      Admission is complimentary for enrolled Pillai University students and invited regional delegates.
+                      Complimentary for enrolled Pillai University students & Heartfulness participants.
                     </p>
                   </div>
 
-                  <button
-                    onClick={() => setShowRegForm(true)}
-                    disabled={isFull}
-                    className={`px-6 py-2.5 rounded-xl font-bold text-xs transition-all shrink-0 ${
-                      isFull
-                        ? 'bg-slate-800 text-slate-500 cursor-not-allowed'
-                        : 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 hover:brightness-110 shadow-lg shadow-amber-950/40'
-                    }`}
-                  >
-                    {isFull ? 'Capacity Reached' : 'Register Now (Instant Pass)'}
-                  </button>
+                  <div className="flex items-center gap-2.5 shrink-0 flex-wrap">
+                    {event.registrationLink && (
+                      <a
+                        href={event.registrationLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-4 py-2.5 rounded-xl border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-semibold text-xs transition-all flex items-center gap-1.5"
+                      >
+                        <span>Official Google Form</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+
+                    <button
+                      onClick={() => setShowRegForm(true)}
+                      disabled={isFull}
+                      className={`px-6 py-2.5 rounded-xl font-bold text-xs transition-all ${
+                        isFull
+                          ? 'bg-slate-800 text-slate-500 cursor-not-allowed'
+                          : 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 hover:brightness-110 shadow-lg shadow-amber-950/40'
+                      }`}
+                    >
+                      {isFull ? 'Capacity Reached' : 'Instant Campus RSVP'}
+                    </button>
+                  </div>
                 </div>
               )}
             </div>

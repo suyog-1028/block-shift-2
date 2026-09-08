@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
+import { CORE_OBJECTIVES, HEARTFULNESS_PRACTICES } from '../../data/mockData';
 import { 
   Sparkles, 
   Target, 
@@ -11,7 +12,12 @@ import {
   CheckCircle2, 
   BookOpen, 
   Building2, 
-  ArrowRight 
+  ArrowRight,
+  Wind,
+  Sun,
+  Flame,
+  FileText,
+  ExternalLink
 } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
@@ -19,52 +25,29 @@ export const AboutPage: React.FC = () => {
 
   const timelineEvents = [
     {
-      year: '2018',
-      title: 'Foundation & Genesis',
-      description: 'Conceived under the visionary patronage of Dr. K. M. Vasudevan Pillai and senior faculty to create an independent, student-led council bridging academic rigor with executive and cultural enterprise.'
+      year: '16 October 2019',
+      title: 'Foundation of TAPAS & Heartfulness Collaboration',
+      description: 'Formed on 16 October 2019 at Pillai Campus. A passionate group of students and visionary faculty established TAPAS under the umbrella of Heartfulness, dedicated to creating an environment of meditation, stress relief, and inner equilibrium.'
     },
     {
-      year: '2020',
-      title: 'Digital Resilience & Virtual Conclaves',
-      description: 'Pioneered Western India’s first student-run virtual hackathon during the pandemic, attracting over 2,200 participants across 14 states and launching the SAMARPAN rural digital literacy initiative.'
+      year: '2020 – 2021',
+      title: 'Inaugural Dhyanotsav Fest & Virtual Morning Circles',
+      description: 'Pioneered the flagship 3-day Dhyanotsav campus fest, introducing hundreds of first-year engineering students to relaxation and cleaning methods. Transitioned to virtual morning meditation circles during lockdown to support student mental health.'
     },
     {
-      year: '2022',
-      title: 'Alegria Technical & Cultural Partnership',
-      description: 'Formally integrated as core co-organizers for Pillai University’s signature national festival ‘Alegria: The Festival of Joy’, managing major tech stages, soundstages, and 8,000+ footfall conventions.'
+      year: '2022 – 2023',
+      title: 'Formal Institutional MOU & Dhyanratri Launch',
+      description: 'TAPAS-PCE and Pillai officially signed an institutional MOU to promote regular mindfulness. Launched Dhyanratri—a signature 9-day meditative journey during Navratri connecting inner mindfulness with cultural celebration.'
     },
     {
       year: '2024',
-      title: 'State Honors & Research Expansion',
-      description: 'Recognized with the Best Student Institutional Body Citation by the Higher Education Forum of Maharashtra; established student research fellowships and incubator tracks.'
+      title: 'National Youth Ambassador Award Distinction',
+      description: 'TAPAS student delegates and faculty advisors Dr. Nivedita Shreyans and Prof. Madhura Vyavahare were honored with the prestigious National Youth Ambassador Award by the Heartfulness Institute at Kanha Shanti Vanam.'
     },
     {
-      year: '2026 & Beyond',
-      title: 'National Collegiate Eminence',
-      description: 'Now governing 7 specialized wings with over 60 active student leaders, continuous industry partnerships with top tech and media firms, and a legacy of transformative campus impact.'
-    }
-  ];
-
-  const valuesList = [
-    {
-      icon: Target,
-      title: 'Uncompromising Integrity',
-      desc: 'Transparency in budgeting, open peer elections, and merit-based opportunity distribution across all collegiate wings.'
-    },
-    {
-      icon: Compass,
-      title: 'Creative Boldness',
-      desc: 'Refusing cookie-cutter events. Every stage design, hackathon theme, and masterclass is envisioned from the ground up.'
-    },
-    {
-      icon: Users,
-      title: 'Inclusivity & Mentorship',
-      desc: 'Senior-to-junior handshakes ensuring that first-year students step into high-responsibility leadership roles with seasoned guidance.'
-    },
-    {
-      icon: Heart,
-      title: 'Social Conscience',
-      desc: 'Believing that true college excellence gives back directly to local schools, village communities, and underprivileged youth.'
+      year: '2025 – 2026 & Beyond',
+      title: 'Har Dil Dhyan Challenge & International Delegations',
+      description: 'Over 1,200 participants completed the 21 Days Meditation Challenge. Represented Pillai University at the International Youth Conference on "Rising with Kindness" alongside global delegates from over 30 countries.'
     }
   ];
 
@@ -77,200 +60,265 @@ export const AboutPage: React.FC = () => {
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-xs font-semibold text-amber-300">
-            <Building2 className="w-3.5 h-3.5 text-amber-400" />
-            <span>Mahatma Education Society • Est. 1970</span>
+            <Heart className="w-3.5 h-3.5 text-rose-400" />
+            <span>Formed 16 October 2019 • Pillai University</span>
           </div>
 
           <h1 className="font-regal text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-100 tracking-tight leading-tight">
-            The Spirit & Purpose of <br />
+            About TAPAS Committee <br />
             <span className="font-editorial italic font-normal bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 bg-clip-text text-transparent">
-              TAPAS Committee
+              In Collaboration with Heartfulness
             </span>
           </h1>
 
           <p className="font-body text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto font-light">
-            Rooted in the Sanskrit ideal of disciplined dedication and perseverance, <strong className="text-amber-300 font-semibold">TAPAS</strong> is the apex student committee at Pillai University dedicated to cultivating leaders of substance, artists of vision, and innovators of impact.
+            <strong className="text-amber-300 font-semibold">TAPAS-PCE</strong> is a wellness and meditation club at Pillai University emphasizing the mental health and inner peace of students. Under the umbrella of Heartfulness, we are dedicated towards creating an environment of contemplation, self-improvement, and stress-free academic excellence.
           </p>
         </div>
       </section>
 
-      {/* 2. OUR VISION & OUR MISSION */}
+      {/* 2. THE OFFICIAL INSTITUTIONAL MOU SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          {/* Our Vision */}
-          <div className="relative rounded-3xl border border-amber-500/30 bg-gradient-to-br from-[#0c1427] to-[#080d1a] p-8 sm:p-10 space-y-4 shadow-xl overflow-hidden">
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center">
-              <Compass className="w-6 h-6" />
+        <div className="rounded-3xl border border-amber-500/30 bg-gradient-to-r from-[#0d1629] via-[#101b33] to-[#0d1629] p-8 sm:p-12 shadow-2xl space-y-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-slate-800 pb-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                <FileText className="w-3.5 h-3.5" />
+                <span>Formal Partnership</span>
+              </div>
+              <h2 className="font-regal text-2xl sm:text-3xl font-bold text-slate-100">
+                Institutional MOU with Pillai University
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                TAPAS-PCE and Pillai have signed an official Memorandum of Understanding (MOU) to actively promote meditation, mental wellness, and student balance throughout the university calendar.
+              </p>
             </div>
-            <span className="text-xs font-bold uppercase tracking-widest text-amber-400">Institutional Horizon</span>
-            <h2 className="font-regal text-2xl sm:text-3xl font-bold text-slate-100">
-              Our Vision
-            </h2>
-            <p className="text-sm text-slate-300 leading-relaxed">
-              To be nationally recognized as the gold standard of student-led collegiate governance—where academic curiosity transforms into executive mastery, creative freedom flourishes without boundaries, and every Pillai University graduate emerges as an ethical, resilient catalyst for global positive change.
-            </p>
-            <div className="pt-2 border-t border-slate-800 flex items-center gap-2 text-xs text-slate-400">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>Nurturing future founders, executives, and cultural luminaries</span>
+
+            <div className="p-4 rounded-2xl bg-[#080d19] border border-amber-500/20 text-center space-y-1 shrink-0 w-full md:w-auto">
+              <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Governing Framework</span>
+              <div className="font-regal text-base font-bold text-slate-100">Heartfulness & MES</div>
+              <span className="text-[11px] text-slate-400">NAAC A+ Accredited Campus</span>
             </div>
           </div>
 
-          {/* Our Mission */}
-          <div className="relative rounded-3xl border border-slate-700 bg-gradient-to-br from-[#0e162b] to-[#0a0f1e] p-8 sm:p-10 space-y-4 shadow-xl overflow-hidden">
-            <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center">
-              <Target className="w-6 h-6" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+            <div className="space-y-1.5">
+              <h4 className="font-regal text-sm font-bold text-amber-300 flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400" /> Regular Guided Sessions
+              </h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Certified Heartfulness trainers conduct daily evening cleaning and morning relaxation across campus hostels and meditation halls.
+              </p>
             </div>
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-400">Daily Execution Mandate</span>
-            <h2 className="font-regal text-2xl sm:text-3xl font-bold text-slate-100">
-              Our Mission
-            </h2>
-            <p className="text-sm text-slate-300 leading-relaxed">
-              To curate high-impact hackathons, symposia, masterclasses, and arts festivals; to maintain transparent, accountable student stewardship across all campus wings; and to extend educational outreach into surrounding communities, ensuring that innovation always serves societal wellbeing.
-            </p>
-            <div className="pt-2 border-t border-slate-800 flex items-center gap-2 text-xs text-slate-400">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>Bridging rigorous curriculum with real-world project stewardship</span>
+
+            <div className="space-y-1.5">
+              <h4 className="font-regal text-sm font-bold text-amber-300 flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400" /> Stress Management Modules
+              </h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Masterclasses tailored for exam pressure, project burnout, and emotional resilience embedded into semester induction weeks.
+              </p>
+            </div>
+
+            <div className="space-y-1.5">
+              <h4 className="font-regal text-sm font-bold text-amber-300 flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400" /> Kanha Ashram Immersion
+              </h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Direct sponsorship and delegate entry for Pillai students to attend global retreats at Kanha Shanti Vanam, Hyderabad.
+              </p>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* 3. WHAT WE STAND FOR */}
+      {/* 3. HEARTFULNESS PHILOSOPHY & THE 4 PRACTICES */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
+        <div className="text-center max-w-3xl mx-auto space-y-2">
           <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest">
-            Core Creed & Ethics
+            Raja Yoga Tradition
           </span>
           <h2 className="font-regal text-3xl sm:text-4xl font-bold text-slate-100">
-            What We Stand For
+            What is Heartfulness?
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400">
-            Our guiding ethos shapes how we plan, collaborate, negotiate sponsorships, and support every peer on campus.
+          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Heartfulness is an approach to the Raja Yoga system of meditation. It is a simple and subtle practice that connects each of us with the light and love in our hearts. Through daily practice, the mind centers and shifts to deeper levels of feeling, intuition, and consciousness.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {valuesList.map((val, idx) => {
-            const Icon = val.icon;
-            return (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl border border-slate-800 bg-[#0a0f1d] hover:border-amber-500/30 transition-all space-y-3"
-              >
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center">
-                  <Icon className="w-5 h-5" />
+          {HEARTFULNESS_PRACTICES.map((practice, index) => (
+            <div
+              key={practice.id}
+              className="rounded-2xl border border-slate-800 bg-[#090f1d] hover:border-amber-500/40 p-6 space-y-4 flex flex-col justify-between transition-all group shadow-lg hover:-translate-y-1"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-regal font-bold">
+                  0{index + 1}
                 </div>
-                <h3 className="font-regal text-base font-bold text-slate-100">{val.title}</h3>
-                <p className="text-xs text-slate-400 leading-relaxed">{val.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* 4. TIMELINE & COMMITTEE JOURNEY */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest">
-            Our Trajectory
-          </span>
-          <h2 className="font-regal text-3xl sm:text-4xl font-bold text-slate-100">
-            The TAPAS Journey Through Time
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-400">
-            From a humble student initiative of 8 students to Maharashtra’s most revered collegiate organizing council.
-          </p>
-        </div>
-
-        <div className="relative max-w-4xl mx-auto pl-6 sm:pl-8 border-l-2 border-amber-500/30 space-y-10">
-          {timelineEvents.map((item, idx) => (
-            <div key={idx} className="relative group">
-              {/* Dot */}
-              <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-[#080d1a] border-2 border-amber-400 flex items-center justify-center shadow-md shadow-amber-950/40 group-hover:scale-125 transition-transform">
-                <span className="w-2 h-2 rounded-full bg-amber-400" />
-              </div>
-
-              <div className="bg-[#0a0f1d] border border-slate-800 group-hover:border-amber-500/40 rounded-2xl p-6 transition-all space-y-2 shadow-lg">
-                <div className="flex items-center gap-3">
-                  <span className="font-regal text-amber-400 font-extrabold text-sm sm:text-base px-2.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">
-                    {item.year}
-                  </span>
-                  <h3 className="font-regal text-lg sm:text-xl font-bold text-slate-100 group-hover:text-amber-300 transition-colors">
-                    {item.title}
-                  </h3>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed pt-1">
-                  {item.description}
+                <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider block">
+                  {practice.subtitle}
+                </span>
+                <h3 className="font-regal text-lg font-bold text-slate-100 group-hover:text-amber-300 transition-colors">
+                  {practice.title}
+                </h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  {practice.description}
                 </p>
+              </div>
+
+              <div className="pt-3 border-t border-slate-800 text-[11px] text-amber-400/90 font-medium">
+                Time: {practice.duration}
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 5. WHY JOIN TAPAS? */}
+      {/* 4. OUR THREE CORE OBJECTIVES */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest">
+            Institutional Pillars
+          </span>
+          <h2 className="font-regal text-3xl sm:text-4xl font-bold text-slate-100">
+            Our Core Objectives
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400">
+            Guiding our commitment to collegiate health and community harmony.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {CORE_OBJECTIVES.map((obj, i) => (
+            <div 
+              key={i} 
+              className="p-8 rounded-3xl border border-slate-800 bg-gradient-to-b from-[#0a0f1e] to-[#070b16] space-y-4 hover:border-amber-500/40 transition-colors shadow-xl"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 text-amber-400 flex items-center justify-center font-regal font-bold text-lg">
+                0{i + 1}
+              </div>
+              <h3 className="font-regal text-xl font-bold text-slate-100">{obj.title}</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {obj.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. HISTORICAL TIMELINE */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="text-center space-y-2">
+          <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest">
+            Our Journey
+          </span>
+          <h2 className="font-regal text-3xl sm:text-4xl font-bold text-slate-100">
+            The TAPAS Journey at Pillai University
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400">
+            From an inspired cohort in 2019 to a national award-winning youth wellness movement.
+          </p>
+        </div>
+
+        <div className="relative pl-6 sm:pl-8 border-l border-slate-800 space-y-10">
+          {timelineEvents.map((evt, idx) => (
+            <div key={idx} className="relative group space-y-2">
+              <div className="absolute -left-[31px] sm:-left-[39px] top-1 w-4 h-4 rounded-full bg-slate-900 border-2 border-amber-400 group-hover:bg-amber-400 group-hover:scale-125 transition-all shadow-md shadow-amber-950/50" />
+              
+              <div className="flex items-center gap-3">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-300 border border-amber-500/25">
+                  {evt.year}
+                </span>
+                <h3 className="font-regal text-lg sm:text-xl font-bold text-slate-100 group-hover:text-amber-300 transition-colors">
+                  {evt.title}
+                </h3>
+              </div>
+
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl pt-1">
+                {evt.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 6. FACULTY LEADERSHIP & GUIDANCE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl border border-amber-500/30 bg-gradient-to-b from-[#0e162b] to-[#070c18] p-8 sm:p-14 space-y-10 shadow-2xl">
-          
+        <div className="rounded-3xl border border-slate-800 bg-[#080d1a] p-8 sm:p-12 space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest">
-              Student Growth & Opportunities
+              Institutional Mentorship
             </span>
-            <h2 className="font-regal text-3xl sm:text-4xl font-bold text-slate-100">
-              Why Join TAPAS?
+            <h2 className="font-regal text-2xl sm:text-3xl font-bold text-slate-100">
+              Guided by Dedicated Faculty Mentors
             </h2>
             <p className="text-xs sm:text-sm text-slate-400">
-              Being a TAPAS member is not just an extracurricular bullet point—it is a crucible of genuine executive capability.
+              TAPAS flourishes under the gracious leadership, counseling, and spiritual mentorship of our university faculty.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div className="p-6 rounded-2xl bg-[#090f1e] border border-slate-800 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-bold">
-                01
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="p-6 rounded-2xl border border-slate-800/80 bg-[#0a0f1e] flex gap-4 items-center">
+              <img
+                src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=300&auto=format&fit=crop&q=80"
+                alt="Dr. Nivedita Shreyans"
+                className="w-16 h-16 rounded-full object-cover border border-amber-500/30 shrink-0"
+              />
+              <div className="space-y-1">
+                <h4 className="font-regal text-base font-bold text-slate-100">Dr. Nivedita Shreyans</h4>
+                <p className="text-xs text-amber-400 font-medium">Faculty Mentor & Chief Advisor</p>
+                <p className="text-[11px] text-slate-400">
+                  Instrumental in establishing the Heartfulness MOU and guiding our student leaders to national recognition.
+                </p>
               </div>
-              <h3 className="font-regal text-base font-bold text-slate-100">Real Scale, Real Budgets</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Manage live budgets up to ₹15 Lakhs, negotiate directly with enterprise sponsors, and coordinate logistics for 5,000+ attendee audiences.
-              </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#090f1e] border border-slate-800 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-bold">
-                02
+            <div className="p-6 rounded-2xl border border-slate-800/80 bg-[#0a0f1e] flex gap-4 items-center">
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&auto=format&fit=crop&q=80"
+                alt="Prof. Madhura Vyavahare"
+                className="w-16 h-16 rounded-full object-cover border border-amber-500/30 shrink-0"
+              />
+              <div className="space-y-1">
+                <h4 className="font-regal text-base font-bold text-slate-100">Prof. Madhura Vyavahare</h4>
+                <p className="text-xs text-amber-400 font-medium">Faculty Coordinator</p>
+                <p className="text-[11px] text-slate-400">
+                  Overseeing student affairs, daily meditation routines, and collaborative programs across engineering departments.
+                </p>
               </div>
-              <h3 className="font-regal text-base font-bold text-slate-100">Alumni & Industry Network</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Direct mentorship from TAPAS alumni currently engineering at Google, Microsoft, Morgan Stanley, TCS, and prominent venture startups.
-              </p>
             </div>
-
-            <div className="p-6 rounded-2xl bg-[#090f1e] border border-slate-800 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-bold">
-                03
-              </div>
-              <h3 className="font-regal text-base font-bold text-slate-100">Verified Council Credentials</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Official institutional letters of recommendation signed by University Leadership, Faculty Deans, and MES Trust Directors that supercharge your postgraduate and job applications.
-              </p>
-            </div>
-
           </div>
+        </div>
+      </section>
 
-          <div className="text-center pt-4">
+      {/* 7. CTA / JOIN BANNER */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="rounded-3xl border border-amber-500/30 bg-gradient-to-r from-[#0d1629] via-[#101b34] to-[#0d1629] p-8 sm:p-12 space-y-6 shadow-2xl">
+          <h2 className="font-regal text-2xl sm:text-4xl font-bold text-slate-100">
+            Be Part of Our Mindful Campus Movement
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
+            Join hands with fellow students in spreading peace, emotional well-being, and compassionate leadership across Pillai University.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={() => setIsJoinModalOpen(true)}
-              className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold text-sm shadow-xl shadow-amber-950/40 hover:brightness-110 transition-all inline-flex items-center gap-2"
+              className="px-7 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold text-xs shadow-lg hover:brightness-110 transition-all flex items-center gap-2"
             >
-              <Sparkles className="w-4 h-4 text-slate-950" />
-              <span>Submit Membership Application</span>
-              <ArrowRight className="w-4 h-4 text-slate-950" />
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Apply for Committee</span>
+            </button>
+            <button
+              onClick={() => {
+                setCurrentPage('team');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-7 py-3 rounded-xl border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 font-semibold text-xs transition-all"
+            >
+              Meet the Council
             </button>
           </div>
-
         </div>
       </section>
 

@@ -12,7 +12,7 @@ export interface User {
   bio?: string;
 }
 
-export type EventCategory = 'Cultural' | 'Technical' | 'Social' | 'Workshop' | 'Competition';
+export type EventCategory = 'Cultural' | 'Technical' | 'Social' | 'Workshop' | 'Competition' | 'Meditation & Wellness';
 export type EventStatus = 'upcoming' | 'completed' | 'draft';
 
 export interface EventAgendaItem {
@@ -44,6 +44,7 @@ export interface EventItem {
 
 export type TeamHierarchyLevel = 
   | 'Faculty Coordinator' 
+  | 'Faculty Mentor'
   | 'President' 
   | 'Vice President' 
   | 'Secretary' 
@@ -65,6 +66,25 @@ export interface TeamMember {
   instagram?: string;
   github?: string;
   achievements?: string[];
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  text: string;
+  avatar?: string;
+}
+
+export interface DailyPractice {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  duration: string;
+  icon: string;
+  videoUrl?: string;
+  actionText: string;
 }
 
 export type AchievementCategory = 'Award' | 'Competition Win' | 'Certification' | 'Media Mention' | 'Impact Milestone';

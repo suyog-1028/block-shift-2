@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
-import { TeamMember, TeamHierarchyLevel } from '../../types';
+import { TeamMember } from '../../types';
+import { AUTHENTIC_TESTIMONIALS } from '../../data/mockData';
 import { 
   Users, 
   Linkedin, 
@@ -12,24 +13,24 @@ import {
   Grid, 
   Sparkles, 
   GraduationCap, 
-  ShieldCheck 
+  ShieldCheck,
+  Heart,
+  Quote
 } from 'lucide-react';
 
 export const TeamPage: React.FC = () => {
   const { teamMembers, setIsJoinModalOpen } = useApp();
 
-  const [viewMode, setViewMode] = useState<'grid' | 'hierarchy'>('hierarchy');
+  const [viewMode, setViewMode] = useState<'hierarchy' | 'grid'>('hierarchy');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
   const categories = [
-    { label: 'All Committee', value: 'all' },
-    { label: 'Executive Council', value: 'Executive' },
-    { label: 'Technical Wing', value: 'Technical' },
-    { label: 'Cultural & Arts', value: 'Cultural & Arts' },
-    { label: 'Operations & Logistics', value: 'Operations' },
+    { label: 'All Council', value: 'all' },
+    { label: 'Executive & Faculty', value: 'Executive' },
     { label: 'Creative & Media', value: 'Creative & Media' },
-    { label: 'Public Relations', value: 'Public Relations' },
+    { label: 'Public Relations & Socials', value: 'Public Relations' },
+    { label: 'Operations & Logistics', value: 'Operations' },
   ];
 
   const filteredMembers = teamMembers.filter(member => {
@@ -42,13 +43,12 @@ export const TeamPage: React.FC = () => {
   });
 
   // Hierarchy groupings
-  const faculty = teamMembers.filter(m => m.role === 'Faculty Coordinator');
+  const faculty = teamMembers.filter(m => m.role === 'Faculty Coordinator' || m.role === 'Faculty Mentor');
   const executiveCouncil = teamMembers.filter(m => m.role === 'President' || m.role === 'Vice President' || m.role === 'Secretary');
-  const teamLeads = teamMembers.filter(m => m.role === 'Team Leader');
-  const coreAndVolunteers = teamMembers.filter(m => m.role === 'Core Member' || m.role === 'Volunteer');
+  const wingLeads = teamMembers.filter(m => m.role === 'Team Leader');
 
   const renderMemberCard = (member: TeamMember, compact = false) => {
-    const isExecutive = member.role === 'Faculty Coordinator' || member.role === 'President' || member.role === 'Vice President';
+    const isExecutive = member.role === 'Faculty Coordinator' || member.role === 'Faculty Mentor' || member.role === 'President' || member.role === 'Secretary';
 
     return (
       <div
@@ -84,9 +84,9 @@ export const TeamPage: React.FC = () => {
             <div className="min-w-0 flex-1 space-y-1">
               <div className="flex items-center gap-1.5 flex-wrap">
                 <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${
-                  member.role === 'Faculty Coordinator' ? 'bg-purple-500/20 text-purple-300 border border-purple-500/40' :
+                  member.role === 'Faculty Mentor' || member.role === 'Faculty Coordinator' ? 'bg-purple-500/20 text-purple-300 border border-purple-500/40' :
                   member.role === 'President' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold' :
-                  member.role === 'Vice President' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' :
+                  member.role === 'Secretary' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30 font-semibold' :
                   member.role === 'Team Leader' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' :
                   'bg-slate-800 text-slate-300'
                 }`}>
@@ -102,7 +102,7 @@ export const TeamPage: React.FC = () => {
               </h4>
 
               <p className="text-[11px] text-slate-400 font-medium">
-                {member.department} • {member.year}
+                {member.department} {member.year ? `• ${member.year}` : ''}
               </p>
             </div>
           </div>
@@ -155,17 +155,6 @@ export const TeamPage: React.FC = () => {
                 <Linkedin className="w-3.5 h-3.5" />
               </a>
             )}
-            {member.github && (
-              <a
-                href={member.github}
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-amber-400 transition-colors"
-                title="GitHub"
-              >
-                <Github className="w-3.5 h-3.5" />
-              </a>
-            )}
             {member.instagram && (
               <a
                 href={member.instagram}
@@ -175,6 +164,17 @@ export const TeamPage: React.FC = () => {
                 title="Instagram"
               >
                 <Instagram className="w-3.5 h-3.5" />
+              </a>
+            )}
+            {member.github && (
+              <a
+                href={member.github}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-amber-400 transition-colors"
+                title="GitHub"
+              >
+                <Github className="w-3.5 h-3.5" />
               </a>
             )}
           </div>
@@ -191,13 +191,13 @@ export const TeamPage: React.FC = () => {
         <div className="space-y-2 max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/25 text-amber-300">
             <Users className="w-3.5 h-3.5" />
-            <span>Executive Governance Structure</span>
+            <span>Official Student Leadership Structure</span>
           </div>
           <h1 className="font-regal text-3xl sm:text-5xl font-bold text-slate-100">
             The TAPAS Committee
           </h1>
           <p className="text-xs sm:text-sm text-slate-400">
-            Faculty coordinators, elected council leaders, and dedicated student stewards steering collegiate excellence at Pillai University.
+            Faculty mentors, elected council leaders, and wing heads steering mindfulness, student wellness, and peace initiatives at Pillai University.
           </p>
         </div>
 
@@ -213,7 +213,7 @@ export const TeamPage: React.FC = () => {
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>Visual Hierarchy</span>
+              <span>Leadership Hierarchy</span>
             </button>
             <button
               onClick={() => setViewMode('grid')}
@@ -224,7 +224,7 @@ export const TeamPage: React.FC = () => {
               }`}
             >
               <Grid className="w-3.5 h-3.5" />
-              <span>Full Directory</span>
+              <span>Council Directory</span>
             </button>
           </div>
 
@@ -242,30 +242,30 @@ export const TeamPage: React.FC = () => {
       {viewMode === 'hierarchy' ? (
         <div className="space-y-14">
           
-          {/* Level 1: Faculty Coordinator */}
+          {/* Level 1: Faculty Mentors */}
           <div className="space-y-4 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold uppercase tracking-wider">
               <GraduationCap className="w-3.5 h-3.5" />
-              <span>Tier I • Institutional Advisory</span>
+              <span>Tier I • Faculty Advisory & Spiritual Mentorship</span>
             </div>
-            <div className="max-w-md mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto text-left">
               {faculty.map(f => renderMemberCard(f))}
             </div>
             {/* Connector vertical line */}
             <div className="w-0.5 h-8 bg-gradient-to-b from-purple-500/60 to-amber-500/60 mx-auto" />
           </div>
 
-          {/* Level 2: Executive Council (President, VP, Secretary) */}
+          {/* Level 2: Executive Council (President & Secretary) */}
           <div className="space-y-4">
             <div className="text-center space-y-1">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>Tier II • Executive Council</span>
               </div>
-              <p className="text-xs text-slate-400">Overseeing all 7 committee wings, university relations, and annual charters</p>
+              <p className="text-xs text-slate-400">Spearheading annual fests, campus meditation drives, and institutional liaison</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {executiveCouncil.map(exec => renderMemberCard(exec))}
             </div>
 
@@ -273,35 +273,53 @@ export const TeamPage: React.FC = () => {
             <div className="w-0.5 h-8 bg-amber-500/40 mx-auto" />
           </div>
 
-          {/* Level 3: Team Leaders across Wings */}
+          {/* Level 3: Specialized Wing Heads */}
           <div className="space-y-4">
             <div className="text-center space-y-1">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-bold uppercase tracking-wider">
                 <Users className="w-3.5 h-3.5" />
-                <span>Tier III • Wing Team Leaders</span>
+                <span>Tier III • Specialized Wing Heads</span>
               </div>
-              <p className="text-xs text-slate-400">Heads of Technical Architecture, Cultural Affairs, Operations, and PR</p>
+              <p className="text-xs text-slate-400">Heads of Social Media, Creative Art, Publicity, Coverage, Graphics, Events, and Content</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {teamLeads.map(lead => renderMemberCard(lead))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {wingLeads.map(lead => renderMemberCard(lead))}
             </div>
-
-            {/* Connector vertical line */}
-            <div className="w-0.5 h-8 bg-slate-700 mx-auto" />
           </div>
 
-          {/* Level 4: Core Members & Volunteers */}
-          <div className="space-y-4">
+          {/* Level 4: Founding Leaders & Alumni Voices */}
+          <div className="pt-8 border-t border-slate-800/80 space-y-6">
             <div className="text-center space-y-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold uppercase tracking-wider">
-                <span>Tier IV • Core Members & Volunteers</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                <Quote className="w-3.5 h-3.5" />
+                <span>Founding Leaders & Alumni Hall of Fame</span>
               </div>
-              <p className="text-xs text-slate-400">Ground-level event engineers, stage anchors, media creators, and coordinators</p>
+              <p className="text-xs text-slate-400">The visionary pioneers who laid the cornerstone of TAPAS at Pillai</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {coreAndVolunteers.map(m => renderMemberCard(m, true))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {AUTHENTIC_TESTIMONIALS.map((alumnus) => (
+                <div
+                  key={alumnus.id}
+                  className="p-6 rounded-2xl border border-slate-800 bg-[#090e1c] flex flex-col justify-between space-y-4"
+                >
+                  <p className="text-xs text-slate-300 leading-relaxed italic">
+                    {alumnus.text}
+                  </p>
+                  <div className="flex items-center gap-3 pt-3 border-t border-slate-800">
+                    <img
+                      src={alumnus.avatar}
+                      alt={alumnus.name}
+                      className="w-10 h-10 rounded-full object-cover border border-amber-500/30"
+                    />
+                    <div>
+                      <h4 className="font-regal text-sm font-bold text-slate-100">{alumnus.name}</h4>
+                      <p className="text-[11px] text-amber-400">{alumnus.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -350,10 +368,10 @@ export const TeamPage: React.FC = () => {
       {/* Join Callout */}
       <div className="rounded-2xl border border-slate-800 bg-[#070b14] p-8 text-center space-y-4">
         <h3 className="font-regal text-xl sm:text-2xl font-bold text-slate-100">
-          Want to Join the Committee Ranks?
+          Want to Join the TAPAS Student Council?
         </h3>
         <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto">
-          Elections and auditions for junior coordinators and volunteer roles occur at the onset of every academic term.
+          Volunteer applications for campus coordinators, creative anchors, and session leads open at the beginning of each semester.
         </p>
         <button
           onClick={() => setIsJoinModalOpen(true)}

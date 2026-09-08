@@ -31,10 +31,11 @@ export const EventsPage: React.FC = () => {
 
   const categories: { label: string; value: string }[] = [
     { label: 'All Categories', value: 'all' },
-    { label: 'Technical', value: 'Technical' },
+    { label: 'Meditation & Wellness', value: 'Meditation & Wellness' },
+    { label: 'Workshop', value: 'Workshop' },
     { label: 'Cultural', value: 'Cultural' },
     { label: 'Social', value: 'Social' },
-    { label: 'Workshop', value: 'Workshop' },
+    { label: 'Technical', value: 'Technical' },
     { label: 'Competition', value: 'Competition' }
   ];
 
@@ -95,10 +96,10 @@ export const EventsPage: React.FC = () => {
             <span>Campus Programs & Symposiums</span>
           </div>
           <h1 className="font-regal text-3xl sm:text-5xl font-bold text-slate-100">
-            Conclaves & Gatherings
+            Meditation Conclaves & Programs
           </h1>
           <p className="text-xs sm:text-sm text-slate-400">
-            Discover student hackathons, acoustic music nights, tech bootcamps, and social drives curated by TAPAS Committee.
+            Discover Dhyanratri, 21-Day Meditation Challenges, Dhyanotsav campus orientations, and wellness masterclasses at Pillai University.
           </p>
         </div>
 

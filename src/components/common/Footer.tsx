@@ -58,13 +58,13 @@ export const Footer: React.FC = () => {
                   TAPAS COMMITTEE
                 </span>
                 <p className="text-xs text-amber-400/90 font-medium">
-                  Pillai University • Student Executive Council
+                  Pillai University • In Collaboration with Heartfulness
                 </p>
               </div>
             </div>
 
             <p className="text-sm text-slate-400 leading-relaxed pr-6">
-              A premier student-governed body at Pillai University, dedicated to inspiring holistic leadership, technical innovation, creative culture, and impactful community outreach across collegiate networks in India.
+              A wellness and meditation committee emphasizing student mental health and inner peace under the umbrella of Heartfulness. Formed on 16 October 2019 at Pillai University.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -72,17 +72,18 @@ export const Footer: React.FC = () => {
                 <Shield className="w-3 h-3 text-amber-400" />
                 NAAC ‘A+’ Grade Institution
               </span>
-              <span className="text-xs text-slate-400">MES Heritage since 1970</span>
+              <span className="text-xs text-slate-400">Formal MOU Partner</span>
             </div>
 
             {/* Social Links */}
             <div className="flex items-center gap-3 pt-3">
               <a 
-                href="https://instagram.com" 
+                href="https://instagram.com/tapas.pce" 
                 target="_blank" 
                 rel="noreferrer"
                 className="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-amber-400 hover:border-amber-500/40 transition-colors"
-                aria-label="Instagram"
+                aria-label="Instagram (@tapas.pce)"
+                title="Instagram @tapas.pce"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -195,7 +196,7 @@ export const Footer: React.FC = () => {
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
                 <span>+91 22 2745 6030 / 1700</span>
               </div>
-              <div className="pt-2">
+              <div className="pt-2 flex flex-col gap-1.5">
                 <a 
                   href="https://pillai.edu" 
                   target="_blank" 
@@ -203,6 +204,14 @@ export const Footer: React.FC = () => {
                   className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-medium"
                 >
                   Pillai University Official Portal <ExternalLink className="w-3 h-3" />
+                </a>
+                <a 
+                  href="https://heartfulness.org" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-amber-300"
+                >
+                  Heartfulness Institute Global <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
             </div>

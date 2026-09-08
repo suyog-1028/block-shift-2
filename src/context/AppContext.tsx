@@ -82,12 +82,12 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 const STORAGE_KEYS = {
-  EVENTS: 'tapas_events_v1',
-  ACHIEVEMENTS: 'tapas_achievements_v1',
-  TASKS: 'tapas_tasks_v1',
-  IDEAS: 'tapas_ideas_v1',
-  REGISTRATIONS: 'tapas_registrations_v1',
-  CURRENT_USER_ROLE: 'tapas_role_v1'
+  EVENTS: 'tapas_events_v2',
+  ACHIEVEMENTS: 'tapas_achievements_v2',
+  TASKS: 'tapas_tasks_v2',
+  IDEAS: 'tapas_ideas_v2',
+  REGISTRATIONS: 'tapas_registrations_v2',
+  CURRENT_USER_ROLE: 'tapas_role_v2'
 };
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
