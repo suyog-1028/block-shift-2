@@ -1,0 +1,6 @@
+{
+  "name": "TAPAS Committee — Pillai University",
+  "description": "Inspiring leadership, creativity, and student impact. Official website and student portal of the TAPAS Committee at Pillai University.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
